@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#1a3fa0"/>
+      <stop offset="50%"  stop-color="#6b2a8a"/>
+      <stop offset="100%" stop-color="#cc0033"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="270" fill="url(#bg)"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="130" font-weight="900"
+        fill="white" letter-spacing="-4">TF1</text>
+</svg>
