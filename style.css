@@ -1466,6 +1466,33 @@ ul  { list-style: none; }
 }
 .article-tip p { margin-bottom: 0 !important; font-size: .88rem !important; }
 
+/* Liens dans le corps d'article */
+.article-body a {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201,160,87,.35);
+  transition: color .2s, border-color .2s;
+}
+.article-body a:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+/* Chips « source » (newsletter / actu) */
+.article-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0 0;
+}
+.article-sources a {
+  font-family: var(--font-head);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: .3rem .65rem;
+}
+.article-sources a:hover { color: var(--gold); border-color: var(--gold); }
+
 .article-hr {
   border: none;
   border-top: 1px solid var(--border);
