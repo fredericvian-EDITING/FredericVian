@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Tutos & Actu · Frédéric Vian</title>
+  <meta name="description" content="Tutos post-production et actu audiovisuelle par Frédéric Vian, monteur vidéo basé à Martigues." />
+  <meta name="author" content="Frédéric Vian" />
+  <meta name="theme-color" content="#080705" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://fredericvian.com/blog.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">FV</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about">À propos</a></li>
+      <li><a href="index.html#work">Réalisations</a></li>
+      <li><a href="index.html#skills">Compétences</a></li>
+      <li><a href="index.html#exp">Expérience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="blog.html" class="nav-cta">Actus / Tuto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="blog-hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-vignette"></div>
+      <div class="hero-lines" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="section-label">— Blog</div>
+      <h1 class="section-title">Tutos &amp;<br/>Actu.</h1>
+      <p class="blog-hero-sub">Post-production, outils IA, retours terrain.</p>
+    </div>
+  </header>
+
+  <!-- ARTICLES -->
+  <section class="blog-section">
+    <div class="container">
+
+      <!-- Filtres -->
+      <div class="blog-filter" role="group" aria-label="Filtrer par catégorie">
+        <button class="blog-filter-btn active" data-filter="all">Tous</button>
+        <button class="blog-filter-btn" data-filter="tuto">Tutos</button>
+        <button class="blog-filter-btn" data-filter="actu">Actu</button>
+      </div>
+
+      <!-- Grille -->
+      <div class="blog-grid" id="blogGrid">
+
+        <a class="blog-card" href="articles/ia-premiere-pro-2026.html" data-category="actu">
+          <div class="blog-card-top">
+            <span class="blog-card-cat">Actu</span>
+            <span class="blog-card-date">Juin 2026</span>
+          </div>
+          <h2 class="blog-card-title">IA dans Premiere Pro : ce qu'il faut retenir en 2026</h2>
+          <p class="blog-card-excerpt">Firefly, Enhanced Speech, Text-Based Editing… Adobe met le paquet. Mais qu'est-ce qui change vraiment dans le workflow quotidien ?</p>
+          <span class="blog-card-link">Lire l'article →</span>
+        </a>
+
+        <a class="blog-card" href="articles/premiere-pro-raccourcis.html" data-category="tuto">
+          <div class="blog-card-top">
+            <span class="blog-card-cat">Tuto</span>
+            <span class="blog-card-date">Juin 2026</span>
+          </div>
+          <h2 class="blog-card-title">5 raccourcis Premiere Pro qui changent tout</h2>
+          <p class="blog-card-excerpt">Ces shortcuts vont transformer ta façon de travailler au quotidien. Simples, efficaces, et pourtant souvent ignorés même par les monteurs expérimentés.</p>
+          <span class="blog-card-link">Lire l'article →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">Frédéric Vian</span>
+      <span class="footer-copy">Monteur Vidéo &amp; Post-Production — Martigues, France</span>
+      <span class="footer-year">© <span id="year"></span></span>
+    </div>
+  </footer>
+
+  <script src="blog.js"></script>
+</body>
+</html>

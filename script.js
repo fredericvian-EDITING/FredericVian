@@ -47,6 +47,45 @@ toggle.addEventListener('click', () => {
   applyLang();
 });
 
+// ── Indicateur glissant sous la nav (desktop) ────────────────
+const navUnderline = document.createElement('span');
+navUnderline.className = 'nav-underline';
+navUnderline.setAttribute('aria-hidden', 'true');
+navLinks.appendChild(navUnderline);
+
+const spyLinks = [...navLinks.querySelectorAll('a:not(.nav-cta)')];
+const spySections = spyLinks
+  .map(a => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+
+const isDesktop = () => window.matchMedia('(min-width: 901px)').matches;
+let activeLink = spyLinks[0];
+
+function moveUnderlineTo(link) {
+  if (!link || !isDesktop()) { navUnderline.style.opacity = '0'; return; }
+  navUnderline.style.width = link.offsetWidth + 'px';
+  navUnderline.style.transform = `translateX(${link.offsetLeft}px)`;
+  navUnderline.style.opacity = '1';
+}
+
+function updateActiveSection() {
+  if (!isDesktop()) { navUnderline.style.opacity = '0'; return; }
+  const y = window.scrollY + 120;
+  let current = spySections[0];
+  spySections.forEach(sec => { if (sec.offsetTop <= y) current = sec; });
+  const link = spyLinks.find(a => a.getAttribute('href') === '#' + current.id);
+  if (link) { activeLink = link; moveUnderlineTo(link); }
+}
+
+// Survol : le trait suit le lien pointé, puis revient à la section active
+spyLinks.forEach(a => a.addEventListener('mouseenter', () => moveUnderlineTo(a)));
+navLinks.addEventListener('mouseleave', () => moveUnderlineTo(activeLink));
+
+window.addEventListener('scroll', updateActiveSection, { passive: true });
+window.addEventListener('resize', () => moveUnderlineTo(activeLink));
+window.addEventListener('load', updateActiveSection);
+updateActiveSection();
+
 // ── Accordéon groupes de réalisations ────────────────────────
 document.querySelectorAll('.work-group-header').forEach(btn => {
   const panel = document.getElementById(btn.dataset.target);
