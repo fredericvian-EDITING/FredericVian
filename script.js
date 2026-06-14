@@ -7,6 +7,23 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
+// ── Hero showreel : vidéo de fond (desktop, hors reduced-motion) ──
+// Sur mobile ou si l'utilisateur préfère moins d'animations, on garde
+// uniquement l'image poster — la vidéo (~10 Mo) n'est jamais téléchargée.
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  const wantsVideo = window.matchMedia('(min-width: 901px)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (wantsVideo) {
+    const source = document.createElement('source');
+    source.src  = 'showreel-header.mp4';
+    source.type = 'video/mp4';
+    heroVideo.appendChild(source);
+    heroVideo.load();
+    heroVideo.play().catch(() => {}); // ignore le rejet si l'onglet est masqué
+  }
+}
+
 // ── Menu mobile (burger) ──────────────────────────────────────
 const burger   = document.getElementById('navBurger');
 const navLinks = document.getElementById('navLinks');
@@ -189,7 +206,7 @@ if (contactForm) {
 
 // ── Scroll reveal ─────────────────────────────────────────────
 const revealEls = document.querySelectorAll(
-  '.section-label, .section-title, .about-text p, .about-frame, ' +
+  '.section-label, .section-title, .about-text p, .about-photo, .about-stat, ' +
   '.skill-col, .work-card, .timeline-item, .contact-sub, .contact-link'
 );
 
@@ -206,7 +223,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 // Stagger children inside grids
-document.querySelectorAll('.work-grid, .skills-grid, .contact-links').forEach(grid => {
+document.querySelectorAll('.work-featured, .work-grid, .skills-grid, .contact-links').forEach(grid => {
   grid.querySelectorAll('.reveal').forEach((el, i) => {
     el.dataset.delay = i * 80;
   });
