@@ -13,21 +13,25 @@
 
   <!--
     PARTAGE RÉSEAUX SOCIAUX (Open Graph / Twitter)
-    ⚠️ Remplace https://fredericvian.com/ par ton vrai domaine une fois le site en ligne.
-    ⚠️ Dépose une image og-image.jpg (1200×630) dans ce dossier pour l'aperçu LinkedIn.
+    URLs pointées vers l'hébergement réel (GitHub Pages).
+    ⚠️ Le jour où fredericvian.com est branché, remplacer la base
+       https://fredericvian-editing.github.io/FredericVian/ par https://fredericvian.com/
   -->
-  <link rel="canonical" href="https://fredericvian.com/" />
+  <link rel="canonical" href="https://fredericvian-editing.github.io/FredericVian/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Frédéric Vian" />
   <meta property="og:title" content="Frédéric Vian — Monteur Vidéo & Post-Production" />
   <meta property="og:description" content="Monteur vidéo et chargé de post-production basé à Martigues. Expérience M6, TF1, Canal+." />
-  <meta property="og:url" content="https://fredericvian.com/" />
-  <meta property="og:image" content="https://fredericvian.com/og-image.jpg" />
+  <meta property="og:url" content="https://fredericvian-editing.github.io/FredericVian/" />
+  <meta property="og:image" content="https://fredericvian-editing.github.io/FredericVian/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Frédéric Vian — Monteur Vidéo & Chargé de Post-Production" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Frédéric Vian — Monteur Vidéo & Post-Production" />
   <meta name="twitter:description" content="Monteur vidéo et chargé de post-production basé à Martigues. Expérience M6, TF1, Canal+." />
-  <meta name="twitter:image" content="https://fredericvian.com/og-image.jpg" />
+  <meta name="twitter:image" content="https://fredericvian-editing.github.io/FredericVian/og-image.jpg" />
 
   <!-- Données structurées (Google) -->
   <script type="application/ld+json">
@@ -37,7 +41,7 @@
     "name": "Frédéric Vian",
     "jobTitle": "Monteur Vidéo & Chargé de Post-Production",
     "address": { "@type": "PostalAddress", "addressLocality": "Martigues", "addressCountry": "FR" },
-    "url": "https://fredericvian.com/",
+    "url": "https://fredericvian-editing.github.io/FredericVian/",
     "sameAs": ["https://www.linkedin.com/in/frédéric-vian"]
   }
   </script>
@@ -74,6 +78,12 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg" aria-hidden="true">
+      <!-- Showreel : fond vidéo muet en boucle. La source est injectée en JS
+           uniquement sur desktop (hors prefers-reduced-motion) — sur mobile,
+           seule l'image poster s'affiche pour économiser la bande passante. -->
+      <video id="heroVideo" class="hero-video" muted loop playsinline preload="none"
+             poster="showreel-poster.jpg" aria-hidden="true" tabindex="-1"></video>
+      <div class="hero-overlay"></div>
       <div class="hero-vignette"></div>
       <div class="hero-lines" aria-hidden="true">
         <span></span><span></span><span></span>
@@ -113,29 +123,28 @@
           </p>
         </div>
         <div class="about-visual">
-          <div class="about-frame">
-            <div class="about-frame-inner">
-              <div class="about-stat">
-                <span class="about-stat-num">10+</span>
-                <span class="about-stat-label" data-fr="ans d'expérience" data-en="years of experience">ans d'expérience</span>
-              </div>
-              <div class="about-stat-divider"></div>
-              <div class="about-stat">
-                <span class="about-stat-num">3</span>
-                <span class="about-stat-label" data-fr="grandes chaînes TV" data-en="major TV networks">grandes chaînes TV</span>
-              </div>
-              <div class="about-stat-divider"></div>
-              <div class="about-stat">
-                <span class="about-stat-num">∞</span>
-                <span class="about-stat-label" data-fr="formats maîtrisés" data-en="formats mastered">formats maîtrisés</span>
-              </div>
-              <div class="about-stat-divider"></div>
-              <div class="about-stat">
-                <span class="about-stat-num">M+</span>
-                <span class="about-stat-label" data-fr="vues sur des vidéos montées" data-en="views on edited videos">vues sur des vidéos montées</span>
-              </div>
-            </div>
-          </div>
+          <figure class="about-photo">
+            <img src="IMG/portrait.jpg" alt="Frédéric Vian, monteur vidéo & chargé de post-production" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div class="about-stat">
+          <span class="about-stat-num">100M+</span>
+          <span class="about-stat-label" data-fr="vues sur des vidéos montées" data-en="views on edited videos">vues sur des vidéos montées</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">10+</span>
+          <span class="about-stat-label" data-fr="ans d'expérience" data-en="years of experience">ans d'expérience</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">3</span>
+          <span class="about-stat-label" data-fr="grandes chaînes TV" data-en="major TV networks">grandes chaînes TV</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">20+</span>
+          <span class="about-stat-label" data-fr="formats & genres : doc, clip, corporate, fiction, pub…" data-en="formats & genres: doc, clip, corporate, fiction, pub…">formats & genres : doc, clip, corporate, fiction, pub…</span>
         </div>
       </div>
     </div>
@@ -146,6 +155,57 @@
     <div class="container">
       <div class="section-label" data-fr="— Réalisations" data-en="— Work">— Réalisations</div>
       <h2 class="section-title" data-fr="Projets<br/>sélectionnés." data-en="Selected<br/>Projects.">Projets<br/>sélectionnés.</h2>
+
+      <!-- À LA UNE -->
+      <p class="featured-label" data-fr="— À la une" data-en="— Featured">— À la une</p>
+      <div class="work-featured">
+
+        <div class="work-card work-card--featured" data-yt="uz7x7wO54GA">
+          <div class="work-thumb">
+            <img src="https://img.youtube.com/vi/uz7x7wO54GA/maxresdefault.jpg" alt="Parc Spirou Provence — Naruto Konoha Land" loading="lazy" />
+            <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="work-info">
+            <span class="work-tag" data-fr="Publicité · Parc Spirou" data-en="Advertising · Parc Spirou">Publicité · Parc Spirou</span>
+            <h3>Naruto — Konoha Land</h3>
+          </div>
+        </div>
+
+        <div class="work-card work-card--featured" data-yt="E4OWboNIdrw">
+          <div class="work-thumb">
+            <img src="https://img.youtube.com/vi/E4OWboNIdrw/maxresdefault.jpg" alt="ALPHA La série" loading="lazy" />
+            <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="work-info">
+            <span class="work-tag" data-fr="Web série · 2025" data-en="Web series · 2025">Web série · 2025</span>
+            <h3>ALPHA — La série</h3>
+          </div>
+        </div>
+
+        <div class="work-card work-card--featured" data-yt="rwf_QAiRUIs">
+          <div class="work-thumb">
+            <img src="https://img.youtube.com/vi/rwf_QAiRUIs/maxresdefault.jpg" alt="Il était une Foire — Foire de Marseille" loading="lazy" />
+            <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="work-info">
+            <span class="work-tag" data-fr="Événementiel · Foire de Marseille" data-en="Event · Foire de Marseille">Événementiel · Foire de Marseille</span>
+            <h3>Il était une Foire</h3>
+          </div>
+        </div>
+
+        <div class="work-card work-card--featured" data-yt="DGOO0UP9NcY">
+          <div class="work-thumb">
+            <img src="https://img.youtube.com/vi/DGOO0UP9NcY/maxresdefault.jpg" alt="L'ancien de la French Connection — Origines" loading="lazy" />
+            <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="work-info">
+            <span class="work-tag" data-fr="Reportage · Origines" data-en="Report · Origines">Reportage · Origines</span>
+            <h3>L'ancien de la French Connection</h3>
+          </div>
+        </div>
+
+      </div>
+
       <div class="work-list">
 
         <!-- GROUPE : CLIQUE — CANAL+ -->
@@ -475,6 +535,107 @@
           </div>
         </div>
 
+        <!-- GROUPE : YOUTUBE -->
+        <div class="work-group">
+          <button class="work-group-header" aria-expanded="false" data-target="group-yt">
+            <div class="work-group-thumb">
+              <img src="https://img.youtube.com/vi/m85LBJ75Lwk/hqdefault.jpg" alt="YouTube" />
+            </div>
+            <div class="work-group-meta">
+              <span class="work-tag" data-fr="YouTube · Créateurs" data-en="YouTube · Creators">YouTube · Créateurs</span>
+              <h3>YouTube</h3>
+              <p data-fr="3 vidéos montées" data-en="3 edited videos">3 vidéos montées</p>
+            </div>
+            <span class="work-group-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </button>
+
+          <div class="work-group-episodes" id="group-yt">
+            <div class="work-grid work-grid--three">
+
+              <div class="work-card" data-yt="m85LBJ75Lwk">
+                <div class="work-thumb">
+                  <img src="https://img.youtube.com/vi/m85LBJ75Lwk/hqdefault.jpg" alt="OCTOGOAL EP6 — Mohamed Henni" loading="lazy" />
+                  <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                </div>
+                <div class="work-info">
+                  <span class="work-tag">Mohamed Henni</span>
+                  <h3>OCTOGOAL — EP6</h3>
+                </div>
+              </div>
+
+              <div class="work-card" data-yt="LD7FGURStN0">
+                <div class="work-thumb">
+                  <img src="https://img.youtube.com/vi/LD7FGURStN0/maxresdefault.jpg" alt="Jeu d'horreur en IRL — Amarinho" loading="lazy" />
+                  <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                </div>
+                <div class="work-info">
+                  <span class="work-tag">Amarinho</span>
+                  <h3 data-fr="Jeu d'horreur en IRL" data-en="Horror game IRL">Jeu d'horreur en IRL</h3>
+                </div>
+              </div>
+
+              <div class="work-card" data-yt="7cQtdoESCWo">
+                <div class="work-thumb">
+                  <img src="https://img.youtube.com/vi/7cQtdoESCWo/maxresdefault.jpg" alt="Transmission avec un réfugié irakien — Origines" loading="lazy" />
+                  <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                </div>
+                <div class="work-info">
+                  <span class="work-tag">Origines</span>
+                  <h3 data-fr="Transmission avec un réfugié irakien" data-en="Conversation with an Iraqi refugee">Transmission avec un réfugié irakien</h3>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUPE : PUBLICITÉ -->
+        <div class="work-group">
+          <button class="work-group-header" aria-expanded="false" data-target="group-pub">
+            <div class="work-group-thumb">
+              <img src="https://img.youtube.com/vi/thbTPlP6ssg/maxresdefault.jpg" alt="Publicité" />
+            </div>
+            <div class="work-group-meta">
+              <span class="work-tag" data-fr="Publicité · TV &amp; Digital" data-en="Advertising · TV &amp; Digital">Publicité · TV &amp; Digital</span>
+              <h3 data-fr="Publicité" data-en="Advertising">Publicité</h3>
+              <p data-fr="2 films montés" data-en="2 edited films">2 films montés</p>
+            </div>
+            <span class="work-group-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </button>
+
+          <div class="work-group-episodes" id="group-pub">
+            <div class="work-grid work-grid--two">
+
+              <div class="work-card" data-yt="thbTPlP6ssg">
+                <div class="work-thumb">
+                  <img src="https://img.youtube.com/vi/thbTPlP6ssg/maxresdefault.jpg" alt="Quick — Tony Parker Burgers" loading="lazy" />
+                  <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                </div>
+                <div class="work-info">
+                  <span class="work-tag">Quick</span>
+                  <h3>Tony Parker Burgers</h3>
+                </div>
+              </div>
+
+              <div class="work-card" data-yt="uz7x7wO54GA">
+                <div class="work-thumb">
+                  <img src="https://img.youtube.com/vi/uz7x7wO54GA/maxresdefault.jpg" alt="Parc Spirou Provence — Naruto Konoha Land" loading="lazy" />
+                  <div class="work-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                </div>
+                <div class="work-info">
+                  <span class="work-tag">Parc Spirou Provence</span>
+                  <h3>Naruto — Konoha Land</h3>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         <!-- GROUPE : CLIPS MUSICAUX -->
         <div class="work-group">
           <button class="work-group-header" aria-expanded="false" data-target="group-clips">
@@ -669,6 +830,7 @@
             <li><span class="skill-dot"></span>Adobe Premiere Pro</li>
             <li><span class="skill-dot"></span>DaVinci Resolve</li>
             <li><span class="skill-dot"></span>Avid Media Composer</li>
+            <li><span class="skill-dot"></span><span data-fr="Suite Adobe" data-en="Adobe Suite">Suite Adobe</span></li>
           </ul>
         </div>
         <div class="skill-col">
@@ -677,6 +839,7 @@
             <li><span class="skill-dot"></span><span data-fr="Publicité TV" data-en="TV Commercials">Publicité TV</span></li>
             <li><span class="skill-dot"></span><span data-fr="Fiction &amp; Divertissement" data-en="Fiction &amp; Entertainment">Fiction &amp; Divertissement</span></li>
             <li><span class="skill-dot"></span><span data-fr="Réseaux sociaux &amp; YouTube" data-en="Social Media &amp; YouTube">Réseaux sociaux &amp; YouTube</span></li>
+            <li><span class="skill-dot"></span><span data-fr="Format vertical" data-en="Vertical format">Format vertical</span></li>
           </ul>
         </div>
         <div class="skill-col">
@@ -714,8 +877,8 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-period" data-fr="Actuellement" data-en="Present">Actuellement</span>
-            <h3 data-fr="Monteur Vidéo — Auto-entrepreneur" data-en="Video Editor — Freelance">Monteur Vidéo — Auto-entrepreneur</h3>
+            <span class="timeline-period" data-fr="Biyoo · Depuis 2022" data-en="Biyoo · Since 2022">Biyoo · Depuis 2022</span>
+            <h3 data-fr="Monteur — Responsable de post-production" data-en="Editor — Post-Production Supervisor">Monteur — Responsable de post-production</h3>
             <p data-fr="Montage et livraison tous formats : publicité TV, réseaux sociaux, YouTube, fiction, divertissement. Intégration d'outils IA dans le workflow."
                data-en="Editing and delivery across all formats: TV commercials, social media, YouTube, fiction, entertainment. AI tools integration in the workflow.">
                Montage et livraison tous formats : publicité TV, réseaux sociaux, YouTube, fiction, divertissement. Intégration d'outils IA dans le workflow.
@@ -726,7 +889,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-period">Canal+</span>
+            <span class="timeline-period">Clique — Canal+ · 2021 – 2022</span>
             <h3 data-fr="Assistant Post-Production" data-en="Post-Production Assistant">Assistant Post-Production</h3>
             <p data-fr="Organisation et supervision de la chaîne de post-production. Management des équipes de monteurs et assistants." data-en="Organisation and oversight of the post-production pipeline. Management of editing teams and assistants.">
               Organisation et supervision de la chaîne de post-production. Management des équipes de monteurs et assistants.
@@ -737,7 +900,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-period">TF1</span>
+            <span class="timeline-period">TF1 · 2019 – 2021</span>
             <h3 data-fr="Assistant Post-Production" data-en="Post-Production Assistant">Assistant Post-Production</h3>
             <p data-fr="Coordination de projets audiovisuels de grande envergure. Garantie du bon déroulement de la post-production bout en bout." data-en="Coordination of large-scale audiovisual projects. End-to-end post-production oversight.">
               Coordination de projets audiovisuels de grande envergure. Garantie du bon déroulement de la post-production bout en bout.
@@ -748,10 +911,32 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="timeline-period">M6</span>
+            <span class="timeline-period">M6 · 2018</span>
             <h3 data-fr="Assistant Post-Production" data-en="Post-Production Assistant">Assistant Post-Production</h3>
-            <p data-fr="Premiers pas dans les équipes de post-production d'une grande chaîne nationale. Formation aux workflows industriels de l'audiovisuel français." data-en="First steps in the post-production teams of a major national network. Training in industrial workflows of French broadcasting.">
-              Premiers pas dans les équipes de post-production d'une grande chaîne nationale. Formation aux workflows industriels de l'audiovisuel français.
+            <p data-fr="Intégration des équipes de post-production d'une grande chaîne nationale. Montée en compétence sur les workflows industriels de l'audiovisuel français." data-en="Joining the post-production teams of a major national network. Building expertise in the industrial workflows of French broadcasting.">
+              Intégration des équipes de post-production d'une grande chaîne nationale. Montée en compétence sur les workflows industriels de l'audiovisuel français.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-period">SATIS · 2018</span>
+            <h3 data-fr="Master Sciences et Technologies" data-en="Master's in Science and Technology">Master Sciences et Technologies</h3>
+            <p data-fr="Parcours SATIS, option montage post-production — Aix-Marseille Université." data-en="SATIS programme, editing and post-production specialisation — Aix-Marseille University.">
+              Parcours SATIS, option montage post-production — Aix-Marseille Université.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-period">TF1 Production · 2017</span>
+            <h3 data-fr="Assistant monteur — Stage" data-en="Editing Assistant — Internship">Assistant monteur — Stage</h3>
+            <p data-fr="Stage de 2 mois chez TF1 Production à Boulogne-Billancourt. Première immersion dans les équipes et les workflows de post-production." data-en="Two-month internship at TF1 Production in Boulogne-Billancourt. First immersion in post-production teams and workflows.">
+              Stage de 2 mois chez TF1 Production à Boulogne-Billancourt. Première immersion dans les équipes et les workflows de post-production.
             </p>
           </div>
         </div>
